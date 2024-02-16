@@ -27,8 +27,15 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 protected:
-	UPROPERTY(EditAnywhere, Category ="enhancedInput")
+	//mapping
+	UPROPERTY(EditAnywhere, Category ="EnhancedInput")
 	class UInputMappingContext* InputMapping;
+
+	//input action
+	UPROPERTY(EditAnywhere, Category = "EnhancedInput")
+	class UInputAction* TestAction;
+
+	void TestInput();
 
 private:
 	void AddInputMapping();

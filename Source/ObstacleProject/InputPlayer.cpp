@@ -1,6 +1,7 @@
 
 #include "InputPlayer.h"
 #include <EnhancedInputSubsystems.h>
+#include <EnhancedInputComponent.h>
 
 // Sets default values
 AInputPlayer::AInputPlayer()
@@ -30,7 +31,16 @@ void AInputPlayer::Tick(float DeltaTime)
 void AInputPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+	//for key pressed
+	if (UEnhancedInputComponent* Input = CastChecked<UEnhancedInputComponent>(PlayerInputComponent)) {
+		Input->BindAction(TestAction, ETriggerEvent::Triggered, this, &AInputPlayer::TestInput);
+	}
 
+}
+
+void AInputPlayer::TestInput()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 1, FColor::Blue, "key pressed input action");
 }
 
 void AInputPlayer::AddInputMapping()

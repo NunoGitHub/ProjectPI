@@ -82,7 +82,7 @@ void AMovingPlatform::Tick(float DeltaTime)
 	float DisplayTime = 2.0f;
 	FColor Color = FColor::Green;
 	int32 Key = 0;
-	GEngine->AddOnScreenDebugMessage(Key, DisplayTime, Color, GetName() + "-> " + disS);
+	//GEngine->AddOnScreenDebugMessage(Key, DisplayTime, Color, GetName() + "-> " + disS);
 	free(disS);
 	//check if the platform has already traveled the maximum distance
 	if (FVector::Dist(CurrentLocation, endPos) <=1.0f) {
